@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1. Tornai vár (Turniansky hrad)</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    body {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+        url("images/poi_01_tornai_var_turniansky_hrad.jpg") center / cover no-repeat fixed;
+    }
+
+    .poi-page #map {
+      height: 420px !important;
+      min-height: 420px !important;
+      margin-top: 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Extra stílusok a kutatási anyaghoz */
+    .content-section {
+      margin-bottom: 24px;
+    }
+    .content-section h2 {
+      font-size: 1.4rem;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 5px;
+    }
+    .content-section h3 {
+      font-size: 1.1rem;
+      margin-top: 15px;
+      color: #ddd;
+      font-weight: bold;
+    }
+    .content-section ul {
+      margin-left: 20px;
+      color: #ccc;
+    }
+    .content-section li {
+      margin-bottom: 8px;
+    }
+    .highlight-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid #f39c12;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote {
+      font-style: italic;
+      border-left: 3px solid #aaa;
+      margin: 10px 0;
+      padding-left: 15px;
+      color: #ddd;
+    }
+  </style>
+</head>
+
+<body class="poi-page">
+  <div class="page">
+
+    <div class="topbar">
+      <div class="inner">
+        <div class="brand">
+          <div class="title">Szepesség &amp; Gömör</div>
+          <div class="subtitle">1. Tornai vár (Turniansky hrad)</div>
+        </div>
+        <div class="btnrow">
+          <a class="btn" href="poi.html">📋 Lista</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+
+        <div class="h1">1. Tornai vár (Turniansky hrad)</div>
+        <div class="small">48.610500, 20.875700</div>
+
+        <img class="hero-image" src="images/poi_01_tornai_var_turniansky_hrad.jpg" alt="Tornai vár (Turniansky hrad)">
+
+        <div class="highlight-box">
+          <strong>A Gömör-Tornai Karszt stratégiai kulcsa.</strong> Ez az anyag a helyszíni bejáráshoz készült: nem útikönyves általánosságok, hanem konkrét megfigyelési pontok és történelmi összefüggések.
+        </div>
+
+        <div class="content-section">
+          <h2>I. Geológia és Stratégia</h2>
+          <p class="p">A vár nem véletlenül került oda, ahová. A helyszín egy tektonikai és stratégiai anomália.</p>
+          <ul>
+            <li><strong>A Várhegy (375 m):</strong> Ez egy klasszikus tanúhegy vagy karsztkúp. Geológiailag a Gömör–Tornai-karszt legkeletibb nyúlványa.</li>
+            <li><strong>A "Tornai-kapu":</strong> A vár ellenőrzi a Kassai-medence és a Rozsnyói-medence közötti átjárót. A középkorban ez volt a „Magna Via” egyik ága. Aki ezt a dombot birtokolta, mérföldekről látta a közeledő seregeket nyugatról és keletről is.</li>
+            <li><strong>Mikroklíma:</strong> A hegy déli lejtője extrém meleg mikroklímával rendelkezik. A mészkő nappal elnyeli a hőt, éjjel kisugározza. Ezért élnek meg itt olyan fajok, amik máshol csak a Balkánon.</li>
+          </ul>
+        </div>
+
+        <div class="content-section">
+          <h2>II. Építészettörténeti Rekonstrukció</h2>
+          <p class="p">A rom nem egységes. Három nagy korszak rétegei rakódnak egymásra.</p>
+
+          <h3>1. A Gótikus Mag (13-14. század)</h3>
+          <p class="p">A vár legmagasabb pontján állt az Öregtorony (Donjon). Ez volt a korai vár lakó- és védelmi központja. Nagy Lajos király 1357-ben engedélyezte a bővítést: ekkor épült a gótikus palotaszárny. Figyeld meg a falak vastagságát: itt még a gravitációs elv (minél vastagabb, annál erősebb) érvényesült.</p>
+
+          <h3>2. A Reneszánsz Erődítés (15-16. század)</h3>
+          <p class="p">A mohácsi vész (1526) után a magas gótikus falak sebezhetővé váltak. Mit keress: A vár déli és nyugati oldalán lévő <strong>kerek ágyúbástyákat (rondellákat)</strong>. A lőréseket már kulcslyuk vagy tölcsér alakúra tervezték a korai tűzfegyverek számára.</p>
+
+          <h3>3. A Vízellátás Rejtélye</h3>
+          <p class="p">Mivel karszthegyen vagyunk, a víz azonnal elszivárog, kutat nem lehetett fúrni. A megoldás: A várudvar közepén ciszternákat vájtak a sziklába az esővíz gyűjtésére. Ez volt a vár "Achilles-sarka".</p>
+        </div>
+
+        <div class="content-section">
+          <h2>III. Történelmi Mélyfúrás</h2>
+          
+          <h3>A Bebekek és a pénzhamisítás</h3>
+          <p class="p">A Bebek család (Gömör urai) a 16. század oligarchái voltak. Hogy magánhadseregüket fizetni tudják, a közeli Krasznahorkán és Csetneken pénzverdéket üzemeltettek, ahol II. Lajos és I. Ferdinánd ezüst dénárjait hamisították. Torna volt a "logisztikai központ", ahonnan a rablóportyákat indították Kassa ellen.</p>
+
+          <h3>A Végzetes Robbanás (1685)</h3>
+          <p class="p">A vár pusztulása pontosan dokumentált. Thököly kurucai feladták a várat a túlerővel szemben. Schultz császári tábornok nem akarta, hogy a vár újra lázadó kézre kerüljön, ezért utászai aláaknázták a lakótornyot és a kapubástyát. Amit ma látsz, az egy 340 évvel ezelőtti irányított robbantás eredménye.</p>
+        </div>
+
+        <div class="content-section">
+          <h2>IV. Helyszíni Specialitások (Checklist)</h2>
+          
+          <div class="highlight-box">
+            <h3>🔍 A "Szellemsínek"</h3>
+            <p class="p">A külső várkapuhoz felvezető meredek szakaszon figyeld a sziklába vájt mély barázdákat! Ezeket évszázadok alatt a fel-le járó lovaskocsik kerekei koptatták a mészkőbe. Mérd meg a nyomtávot: ez a szabványos középkori magyar szekérszélesség.</p>
+          </div>
+
+          <div class="highlight-box">
+            <h3>🌸 Botanikai Ritkaság: Tornai vértő</h3>
+            <p class="p">Latinul: <em>Onosma tornensis</em>. Ez egy bennszülött (endemikus) faj, ami az egész világon kizárólag itt, a Tornai várhegyen és a Szádelői-völgyben él. Tavasszal sárga virágaival díszíti a sziklákat. <strong>Szigorúan védett!</strong></p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>V. Irodalom és Legenda</h2>
+          <p class="p"><strong>Petőfi Sándor a romokon (1847):</strong> <em>"A város fölött omladoz a vár. A lakosok azt beszélik, hogy éjjel kísértet jár benne, mégpedig egy magyar menyecske képében... Jó, hogy nappal jártam ott, mert én az ilyen menyecskéktől félek."</em></p>
+          
+          <h3>A gőgös várúrnő legendája</h3>
+          <p class="p">A néphagyomány szerint Bebek Krisztina várúrnő hiúságból megölte szolgálóját, aki rálépett a ruhájára. Átka utolérte: egy mulatságon egy fekete lovag jelent meg, táncba vitte, majd kirepítette az ablakon a szakadékba. A legenda a nép kritikája volt a zsarnok oligarchák ellen.</p>
+        </div>
+
+        <div class="poibtns">
+          <a class="btn btn-blue" href="https://www.google.com/maps/dir/?api=1&destination=48.610500,20.875700" target="_blank" rel="noopener">🧭 Navigáció</a>
+          <a class="btn btn-accent" href="poi.html">📋 Lista</a>
+        </div>
+
+        <div id="map"></div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const POI = {
+      name: "Tornai vár (Turniansky hrad)",
+      lat: 48.610500,
+      lon: 20.875700
+    };
+
+    const map = L.map("map").setView([POI.lat, POI.lon], 14);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: "© OpenStreetMap"
+    }).addTo(map);
+
+    L.marker([POI.lat, POI.lon]).addTo(map).bindPopup(`<b>${POI.name}</b>`);
+
+    // GPS piros
+    let userMarker = null;
+    const userIconRed = L.icon({
+      iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+      shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41]
+    });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(
+        pos => {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
+          const mapDiv = document.getElementById("map");
+          
+          if (!userMarker) {
+            userMarker = L.marker([lat, lon], { icon: userIconRed }).addTo(map).bindPopup("📍 Itt vagy most");
+          } else {
+            userMarker.setLatLng([lat, lon]);
+          }
+        },
+        err => console.log("GPS hiba:", err),
+        { enableHighAccuracy: true }
+      );
+    }
+  </script>
+
+</body>
+</html>

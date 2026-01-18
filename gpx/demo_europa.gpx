@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Kirandulas szerkeszto demo" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Demo útvonal: Tornai vár → Firenze</name>
+  </metadata>
+  <trk>
+    <name>Demo útvonal</name>
+    <trkseg>
+      <trkpt lat="48.610500" lon="20.875700"></trkpt>
+      <trkpt lat="43.769600" lon="11.255800"></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

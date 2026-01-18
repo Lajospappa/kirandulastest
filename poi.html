@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kirándulás szerkesztő: POI pontok</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    body.bg-all{
+      background: url("images/bg_kirandulas.jpg") center / cover no-repeat fixed;
+    }
+
+    .filters{
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .filters .row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filters label{
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      display:flex;
+      gap: 8px;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .filters select{
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      color: #f2f2f2;
+      padding: 9px 10px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .filters input[type="checkbox"]{
+      transform: scale(1.15);
+    }
+
+    .badge{
+      display:inline-flex;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      font-size: 12px;
+      font-weight: 900;
+      margin-left: 8px;
+    }
+
+    .ind-ok{ color: var(--ok); }
+    .ind-warn{ color: var(--warn); }
+    .ind-bad{ color: var(--bad); }
+
+    .poi.is-selected{ outline: 2px solid rgba(255,176,0,0.65); }
+
+    #map{ width:100%; height: 330px; }
+
+    .poi-actions{
+      margin-top: 10px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-mini{
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+
+<body class="bg-all">
+  <div class="page">
+
+    <div class="topbar">
+      <div class="inner">
+        <div class="brand">
+          <div class="title">Kirándulás szerkesztő</div>
+          <div class="subtitle">POI pontok, szűrők és térkép</div>
+        </div>
+        <div class="btnrow">
+          <a class="btn" href="index.html">Főoldal</a>
+          <a class="btn btn-blue" href="route.html">Útvonal</a>
+          <button class="btn btn-accent" id="btnNearest" type="button">Legközelebbi pont</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="card">
+        <div class="h1">POI lista</div>
+        <div class="small" id="gpsNotice" style="display:none; margin-top:10px;">A helymeghatározás nem érhető el. Ellenőrizd az engedélyeket.</div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="filters">
+        <div class="row">
+          <label>
+            Ország
+            <select id="fCountry"></select>
+          </label>
+
+          <label>
+            Régió
+            <select id="fRegion"></select>
+          </label>
+
+          <label>
+            Kategória
+            <select id="fCategory"></select>
+          </label>
+
+          <label>
+            <input id="fMustSee" type="checkbox">
+            Csak MUST SEE
+          </label>
+
+          <label>
+            <input id="fInView" type="checkbox">
+            Csak térképen láthatók
+          </label>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="poi-tools" style="background:rgba(0,0,0,0.45);padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,0.12);">
+        <div class="counter tu-count" id="selCounter">Kijelöltek: 0/15</div>
+        <div class="poi-actions">
+          <button class="btn btn-accent" id="btnNaviSelected" type="button">Kijelölt útvonal navigáció</button>
+          <button class="btn" id="btnClearSelected" type="button">Törlés</button>
+        </div>
+        <div class="small" style="margin-top:8px;">Rank alapérték: 3, ha nincs megadva.</div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="grid" id="poiList"></div>
+
+    </div>
+  </div>
+
+  <div class="map-dock" id="mapDock">
+    <div class="map-dock-handle" id="mapDockHandle">
+      <div class="map-dock-title">Térkép</div>
+      <button class="map-dock-btn" id="mapDockToggle" type="button" aria-expanded="false">▲</button>
+    </div>
+
+    <div class="map-dock-body">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/gps.js"></script>
+  <script src="assets/data/pois.js"></script>
+  <script src="assets/js/page_poi.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kirándulás szerkesztő: Útvonal</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Leaflet GPX -->
+  <script src="https://unpkg.com/leaflet-gpx@1.7.0/gpx.js"></script>
+
+  <style>
+    body.bg-all{
+      background: url("images/bg_kirandulas.jpg") center / cover no-repeat fixed;
+    }
+
+    .filters{
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .filters .row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filters label{
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      display:flex;
+      gap: 8px;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .filters select{
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      color: #f2f2f2;
+      padding: 9px 10px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .filters input[type="checkbox"]{ transform: scale(1.15); }
+
+    #map{ width:100%; height: 330px; }
+
+    .mini-list{
+      margin-top: 10px;
+      display:flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mini-item{
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.35);
+    }
+    .mini-item .t{ font-weight: 900; }
+    .mini-item .s{ font-size: 12px; color: rgba(255,255,255,0.75); }
+  </style>
+</head>
+
+<body class="bg-all">
+  <div class="page">
+
+    <div class="topbar">
+      <div class="inner">
+        <div class="brand">
+          <div class="title">Kirándulás szerkesztő</div>
+          <div class="subtitle">Útvonal oldal GPX réteggel</div>
+        </div>
+        <div class="btnrow">
+          <a class="btn" href="index.html">Főoldal</a>
+          <a class="btn btn-accent" href="poi.html">POI pontok</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="card">
+        <div class="h1">Útvonal és szűrők</div>
+        <div class="small">Az útvonal GPX-ből jön. A POI jelölők ugyanabból az egységes listából jönnek, mint a POI oldalon.</div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="filters">
+        <div class="row">
+          <label>
+            Útvonal
+            <select id="fRoute"></select>
+          </label>
+
+          <label>
+            Kategória
+            <select id="fCategory"></select>
+          </label>
+
+          <label>
+            <input id="fMustSee" type="checkbox">
+            Csak MUST SEE
+          </label>
+
+          <label>
+            <input id="fInView" type="checkbox">
+            Csak térképen láthatók
+          </label>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <div class="small">Látható POI-k a térképen (demó lista):</div>
+        <div class="mini-list" id="routePoiList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="map-dock" id="mapDock">
+    <div class="map-dock-handle" id="mapDockHandle">
+      <div class="map-dock-title">Térkép</div>
+      <button class="map-dock-btn" id="mapDockToggle" type="button" aria-expanded="true">▲</button>
+    </div>
+
+    <div class="map-dock-body">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <script src="assets/data/pois.js"></script>
+  <script src="assets/data/routes.js"></script>
+  <script src="assets/js/page_route.js"></script>
+</body>
+</html>

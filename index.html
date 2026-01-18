@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kirándulás szerkesztő</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body.bg-all{
+      background: url("images/bg_kirandulas.jpg") center / cover no-repeat fixed;
+    }
+  </style>
+</head>
+<body class="bg-all">
+  <div class="page">
+    <div class="topbar">
+      <div class="inner">
+        <div class="brand">
+          <div class="title">Kirándulás szerkesztő</div>
+          <div class="subtitle">Demó: egységes POI adatforrás, szűrők, térkép, útvonal GPX</div>
+        </div>
+        <div class="btnrow">
+          <a class="btn btn-accent" href="poi.html">POI pontok</a>
+          <a class="btn btn-blue" href="route.html">Útvonal</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <div class="h1">Mit tud ez a demó</div>
+        <div class="p">
+          Minden POI egyetlen közös listában van tárolva. A lista, a térkép és a szűrők ebből épülnek.
+          A rank alapértéke 3, ha nincs megadva. Van MUST SEE szűrő és van olyan kapcsoló, ami csak a térképen látható pontokat listázza.
+        </div>
+        <div class="poibtns">
+          <a class="btn btn-accent" href="poi.html">POI lista és térkép</a>
+          <a class="btn btn-blue" href="route.html">Útvonal oldal GPX réteggel</a>
+        </div>
+        <div class="small">Tipp: a POI oldalon jelölj ki több pontot, majd indíts Google navigációt a kijelöltekre.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
